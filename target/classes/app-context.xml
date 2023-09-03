@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	https://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context 
+	https://www.springframework.org/schema/context/spring-context-3.0.xsd
+	http://www.springframework.org/schema/aop
+	https://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<description>Example configuration to get you started.</description>
+
+	<context:component-scan base-package="com.exe.aop" />
+	
+	<!-- aop를 annotation으로 만듦 -->
+	<aop:aspectj-autoproxy>
+		
+	</aop:aspectj-autoproxy>
+	
+	<!-- execution(public void com..aop.*.*(..)) -->
+	<!-- public void에 적용하고 싶어 그리고 패키지명이 com으로 시작하고 패키지 마지막이 aop인 녀석 -->
+	<!-- * : 어떠한 클래스에도 상관없음 * : 어떠한 메소드에도 상관없음 -->
+	<!-- execution(접근지정자 반환값 패키지.클래스.메소드(인수)) -->
+	<!-- 
+	<bean id="beforeAdvice" class="com.exe.aop.MyBeforeAdvice"/>
+	<bean id="afterAdvice" class="com.exe.aop.MyAfterAdvice"/>
+	<bean id="aroundAdvice" class="com.exe.aop.MyAroundAdvice"/>
+	<bean id="returningAdvice" class="com.exe.aop.MyReturningAdvice"/>
+	<bean id="afterThrowingAdvice" class="com.exe.aop.MyAfterThrowingAdvice"/>
+
+	<aop:config>
+	
+		<aop:aspect ref="afterAdvice">
+		
+			<aop:pointcut id="afterPointcut" 
+				expression="execution(public void com..aop.*.*(..))"/>
+				
+			<aop:after method="afterMethodCall"
+				pointcut-ref="afterPointcut"/>
+		</aop:aspect>
+	
+		<aop:aspect ref="beforeAdvice">
+		
+			<aop:pointcut id="beforePointcut" 
+				expression="execution(public void com..aop.*.*Some*(..))"/>
+				
+			// MybeforeAdvice에 있는 beforeMethodCall을 호출
+			<aop:before method="beforeMethodCall"
+				pointcut-ref="beforePointcut"/>
+		</aop:aspect>
+		
+	
+		<aop:aspect ref="aroundAdvice">
+		
+			<aop:pointcut id="aroundPointcut" 
+				expression="execution(public void com..aop.*.*(..))"/>
+				
+			<aop:around method="aroundMethodCall"
+				pointcut-ref="aroundPointcut"/>
+		</aop:aspect>
+	
+	 
+		 <aop:aspect ref="returningAdvice">
+			
+			<aop:pointcut id="afterReturningPointcut" 
+				expression="execution(public void com..aop.*.*(..))"/>
+				
+			<aop:after-returning method="afterReturningCall"
+				pointcut-ref="afterReturningPointcut"/>
+		</aop:aspect>
+		
+		<aop:aspect ref="afterThrowingAdvice">
+			
+			<aop:pointcut id="afterThrowingPointcut" 
+				expression="execution(public void com..aop.*.*(..))"/>
+				
+			<aop:after-throwing method="afterThrowMethodCall"
+				pointcut-ref="afterThrowingPointcut"/>
+		</aop:aspect>
+		 
+	</aop:config>
+	 -->
+</beans>
